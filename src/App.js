@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import TasksPages from "./pages/TasksPages";
+import TasksFormPages from "./pages/TasksFormPages";
+import Nav from "./components/Nav";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav />
+      <div className="container">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Navigate to={"/tasks"} />} />
+            <Route path="/tasks" element={<TasksPages />} />
+            <Route path="/tasks-create" element={<TasksFormPages />} />
+            <Route path="/tasks/:id" element={<TasksFormPages />} />
+          </Routes>
+        </BrowserRouter>
+        <Toaster position="bottom-left" reverseOrder={false} />
+      </div>
+    </>
   );
 }
 

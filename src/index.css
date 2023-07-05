@@ -1,13 +1,176 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --fondoPrimary: #8B65BF;
+    --colorPrimary: #ffff;
+    --fuentePrimary: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+    background-color: #232323;
+    color: var(--colorPrimary);
+    font-family: var(--fuentePrimary);
+
+}
+a{
+    text-decoration: none;
+    color: var(--colorPrimary);
+}
+.nav{
+    padding: 1pc;
+    color: var(--colorPrimary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--fondoPrimary);
+}
+.nav h1{
+    font-family: fantasy;
+    font-weight: 100;
+}
+.centrar{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.container{
+    padding: 1pc;
+}
+.TasksCard{
+    
+    height: 20pc;
+
+}
+.formFb{
+    /* width: 100%;  */
+    display: flex;
+    flex-direction: column;
+    width: 21.pc;
+    padding: 1pc;
+    gap: 1pc;
+    /* border: 1px solid; */
+    align-items: center;
+    
+}
+.TM{
+    width: 3pc;
+    position: absolute;
+    top: 0;
+    right: 6px;
+}
+.cal{
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+}
+
+.set {
+    position: absolute;
+    left: 0px;
+    opacity: 0;
+    transition: all ease-in-out 0.3s;
+    background: #363333;
+    /* border: 1px solid white; */
+    border: none;
+    border-radius: 5px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: white;
+    bottom: 1px;
+  }
+  .containerTask{
+    /* border: 1px solid red; */
+    background-color: rgb(192 192 192 / 10%);
+    width: 80%;
+    border-radius: 10px;
+    height: 22pc;
+    padding: 1pc;
+    position: relative;
+    scale: 1;
+    transition: all ease-in-out 0.3s;
+  }
+  
+  .containerTask:hover .set {
+    left: 1pc;
+    opacity: 1;
+  }
+  .containerTask:hover {
+    scale: 1.009;
+    box-shadow: 0px 4px 8px rgb(229 229 229 / 10%);
+  }
+  .set:hover{
+    background-color: #222;
+  }
+.containerTasks{
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns:repeat(4, 25%);
+    justify-items: center;
+    row-gap: 2pc;
+}
+.containerDep{
+    width: 100%;
+    display: flex;
+}
+.Dep{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1pc;
+
+}
+.containerFormDep{
+    width: 50%;
+}
+  
+.formFb input, .formFb textarea{ 
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #232323;
+  max-width: 80%;
+  width: 80%;
+}
+
+input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #4e4d4d;
+}
+@media screen and (max-width: 980px){
+    .containerTasks{
+    grid-template-columns:repeat(3, 33.3%);
+    }
+}
+@media screen and (max-width: 840px){
+    .containerTasks{
+    grid-template-columns:repeat(2, 50%);
+    }
+}
+@media screen and (max-width: 600px){
+    .containerTasks{
+    grid-template-columns:repeat(1, 100%);
+    }
+    .containerDep{
+        flex-direction: column;
+    }
+    .Dep{
+        width: 100%;
+    }
+    .containerFormDep{
+        width: 100%;
+    }
+    .set{
+        opacity: 1;
+        left: 1pc;
+        bottom: 1px;
+    }
 }
